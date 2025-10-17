@@ -93,7 +93,7 @@ namespace
 
         // starting at 5, check 6i +- 1 up to sqrt(num)
         // ex: i+=6 means i walks 5,11,17,23
-        for (unsigned int i = 5; i <= num / i; i += 6)
+        for (size_t i = 5; i <= num / i; i += 6)
         {
             // for each i, test i and i+2 (6k-1 and 6k+1) any prime > 3 is one of those.
             if (num % i == 0 || num % (i + 2) == 0) return false;
@@ -175,8 +175,8 @@ private:
 
     vector<Node> buckets;
     // these are set in the constructors. 
-    unsigned int tableSize; // DEFAULT_SIZE is 31 for a small dataset.
-	unsigned int numElements; // track total elements
+    size_t tableSize; // DEFAULT_SIZE is 31 for a small dataset.
+	size_t numElements; // track total elements
 
     unsigned int maxChainLength = 4; // threshold for resizing
 
@@ -190,7 +190,6 @@ public:
 
     void Insert(const Course& course);
     Course searchCourse(const string& courseNumber) const; 
-    //void saveCSV(const string& path) const;
     void printAll() const;
     void Clear(); 
     size_t Size() const { return numElements; }
@@ -220,7 +219,7 @@ CourseHashTable::CourseHashTable(unsigned int size) : tableSize(size), numElemen
  * Frees all dynamically allocated memory in the chains
  */
 CourseHashTable::~CourseHashTable() {
-    for (unsigned int i = 0; i < tableSize; i++)
+    for (size_t i = 0; i < tableSize; i++)
     {
         // start with the first chained node
         Node* current = buckets[i].next;
@@ -241,10 +240,10 @@ CourseHashTable::~CourseHashTable() {
  */
 unsigned int CourseHashTable::hash(const string& courseNumber) const
 {
-    // simple polynomial rolling hash works better to avoid issues like 101 being used for multiple courses
+    // simple polynomial string hash works better to avoid issues like 101 being used for multiple courses
     unsigned int hashValue = 0;
-    for (char course : courseNumber) {
-        hashValue = hashValue * 31 + course;
+    for (char currChar : courseNumber) {
+        hashValue = hashValue * 31 + currChar;
     }
     return hashValue % tableSize;
 }
@@ -264,7 +263,7 @@ void CourseHashTable::reSize()
     CourseHashTable* newTable = new CourseHashTable(newSize);
 
     // rehash all elements
-    for (unsigned int i = 0; i < tableSize; i++)
+    for (size_t i = 0; i < tableSize; i++)
     {
 	    if (buckets[i].key != UINT_MAX)
 	    {
@@ -399,7 +398,7 @@ void CourseHashTable::printAll() const
     vector<Course> allCourses;
 
     // iterate through all buckets
-    for (unsigned int i = 0; i < tableSize; ++i)
+    for (size_t i = 0; i < tableSize; ++i)
     {
         // if the bucket key isn't empty
 	    if (buckets[i].key != UINT_MAX)
@@ -440,7 +439,7 @@ void CourseHashTable::printAll() const
 
 void CourseHashTable::Clear()
 {
-	for (unsigned int i = 0; i < tableSize; ++i)
+	for (size_t i = 0; i < tableSize; ++i)
 	{
         Node* current = buckets[i].next;
         while (current != nullptr)
@@ -458,7 +457,7 @@ void CourseHashTable::Clear()
 
 
 //============================================================================
-// Additional unnamed namespace for loadCourses and displayInformation
+// unnamed namespace continued for loadCourses and displayInformation
 // Could be moved up top but requires forward declarations. I prefer this. 
 //============================================================================
 
