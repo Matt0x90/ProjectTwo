@@ -121,20 +121,21 @@ namespace
         }
         return num; // returns the next prime
     }
+
+    /**
+	* Structure for course data
+    */
+    struct Course
+    {
+        string courseNumber; // unique identifier -- key for hashing
+        string name; // the course title/name
+        vector<string> prerequisites; // list of prerequisite course numbers
+
+        // default constructor
+        Course() = default;
+    };
 }
 
-/**
- * Structure for course data
- */
-struct Course
-{
-    string courseNumber; // unique identifier -- key for hashing
-    string name; // the course title/name
-    vector<string> prerequisites; // list of prerequisite course numbers
-
-    // default constructor
-    Course() = default;
-};
 
 //============================================================================
 // Hash Table class definition
