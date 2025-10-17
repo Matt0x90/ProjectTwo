@@ -4,7 +4,7 @@ The purpose was to build a CLI course planner that intakes a CSV file of courses
 
 Deciding which data structure to go with affects various facets, such as implementation difficulty, the runtime build speed, the method/function speed on how long it might take to load or print courses. All of this is greatly impacted by it.
 
-I specifically went with a hash table because it offers 𝑂(1) average search, insertion, and deletion, which is great for the intended utility. It handles frequent look ups well. It has dynamic resizing to maintain performance and can scale well with larger course databases. It suits the project use case.
+I specifically went with a hash table because it offers 𝑂(1) average search, insertion, and deletion, which is great for the intended utility. It handles frequent look ups well. It has dynamic resizing to maintain performance and can scale well with larger course databases. It suits the project use case. More detail [here](https://github.com/Matt0x90/ProjectTwo/blob/master/PseudocodeProject1.pdf).
 
 When deciding on how to implement it, I had to add a few things I missed/forgot about when doing the pseudocode compared to implementing it in C++, this included changing, or in most cases simplifying by using libraries like std in almost every method/helper.
 
