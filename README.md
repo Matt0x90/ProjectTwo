@@ -1,6 +1,4 @@
-# ProjectTwo
-
-## Description
+## ProjectTwo Description
 
 The purpose of this project was to choose one of our pseudocode examples, then build a CLI course planner that intakes a CSV file of courses, stores them in a data structure, prints a sorted catalogue, and supports fast lookup of a course with its prerequisites included. Deciding which data structure to go with affects implementation difficulty, the runtime build speed, the method speed on how long it might take to load or print courses.
 
