@@ -1,6 +1,6 @@
 # ProjectTwo
 
-The purpose of this project was to choose one of our pseudocode examples, then build a CLI course planner that intakes a CSV file of courses, stores them in a data structure, prints a sorted catalogue, and supports fast lookup of a course with its prerequisites included. Deciding which data structure to go with affects implementation difficulty, the runtime build speed, the method/function speed on how long it might take to load or print courses. All of this is greatly impacted by it.
+The purpose of this project was to choose one of our pseudocode examples, then build a CLI course planner that intakes a CSV file of courses, stores them in a data structure, prints a sorted catalogue, and supports fast lookup of a course with its prerequisites included. Deciding which data structure to go with affects implementation difficulty, the runtime build speed, the method speed on how long it might take to load or print courses.
 
 I specifically went with a hash table because it offers 𝑂(1) average search, insertion, and deletion, which is great for the intended utility. It handles frequent look ups well. It has dynamic resizing to maintain performance and can scale well with larger course databases. It suits the project use case.
 
